@@ -3,22 +3,31 @@ import Foundation
 main()
 
 func main(){
+    print("ようこそマイNyetゲームへ")
+    print("あなたの名前を教えてください > ",terminator: "")
+    let playerName:String = readLine()!
+    print(showPlayerName(name: playerName))
     
-    // Input Command Line
-    let inputLine = readLine()!
-    
-    print("inputLine : \(inputLine)")
     printDash()
     //    print(green + showMonster(name: inputLine) + reset)
-    print(retMonsterName(name: inputLine))
     terminalPrint(text: showMonster(monster:MonsterType.Slime), color: TerminalColor.red)
     printDash()
     
 }
 
+func showPlayerName(name:String,playerStringColor:TerminalColor = TerminalColor.green){
+    print("""
+==============================
+| player name : \(colorString(text: name, color: playerStringColor))       |
+==============================
+"""
+    )
+}
+
 func printDash(){
     print("=====================================")
 }
+
 
 // for terminal use
 func terminalPrint(text:String,color:TerminalColor){
