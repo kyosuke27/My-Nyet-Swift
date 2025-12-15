@@ -3,25 +3,59 @@ import Foundation
 main()
 
 func main(){
+    let life = 8
     print("ようこそマイNyetゲームへ")
     print("あなたの名前を教えてください > ",terminator: "")
     let playerName:String = readLine()!
-    print(showPlayerName(name: playerName))
     
-    printDash()
     //    print(green + showMonster(name: inputLine) + reset)
-    terminalPrint(text: showMonster(monster:MonsterType.Slime), color: TerminalColor.red)
-    printDash()
+//    terminalPrint(text: showMonster(monster:MonsterType.Slime), color: TerminalColor.red)
+//    print(createPlayerLife(life: life))
+    showPlayerInfo(playerName: playerName,life: life)
     
 }
 
-func showPlayerName(name:String,playerStringColor:TerminalColor = TerminalColor.green){
-    print("""
-==============================
-| player name : \(colorString(text: name, color: playerStringColor))       |
-==============================
-"""
-    )
+func createPlayerLife(life:Int)->String{
+    var hpString:String = ""
+    var hpCount:Int = 0
+    let hp = "♥"
+    let notHp = "♡"
+    for i in 0..<10{
+        if i>=life{
+            hpString=hpString+notHp
+        }else{
+            hpString=hpString+hp
+            hpCount+=1*10
+        }
+    }
+    return "[\(hpString)] \(hpCount) / 100"
+}
+
+func showPlayerInfo(playerName:String,life:Int){
+    // RowLimit - (|*2)
+    let rowStringLimit = 30-2
+    print("==============================")
+    print("|\(fillSpace(limit: rowStringLimit, targetText: ("Player Name : "+playerName)))|")
+    print("| HP                         |")
+    print("|\(fillSpace(limit:rowStringLimit,targetText:createPlayerLife(life: life)))|")
+    print("==============================")
+}
+
+func fillSpace(limit:Int,targetText:String)->String{
+    let diffLimit = limit - targetText.count
+    var space = ""
+    for _ in 0..<diffLimit{
+        space+=" "
+    }
+    return targetText + space
+}
+
+func playerInforow(content:String){
+}
+
+
+func createPlayerName(name:String,playerStringColor:TerminalColor = TerminalColor.green)->String{
+    return "player name : \(colorString(text: name, color: playerStringColor))"
 }
 
 func printDash(){
