@@ -8,9 +8,6 @@ func main(){
     print("あなたの名前を教えてください > ",terminator: "")
     let playerName:String = readLine()!
     
-    //    print(green + showMonster(name: inputLine) + reset)
-//    terminalPrint(text: showMonster(monster:MonsterType.Slime), color: TerminalColor.red)
-//    print(createPlayerLife(life: life))
     showPlayerInfo(playerName: playerName,life: life)
     
 }
