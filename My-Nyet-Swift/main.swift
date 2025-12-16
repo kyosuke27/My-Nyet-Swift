@@ -15,8 +15,10 @@ func main(){
 func createPlayerLife(life:Int)->String{
     var hpString:String = ""
     var hpCount:Int = 0
-    let hp = "♥"
+    
+    let hp:String = colorString(text: "♥", color: TerminalColor.pink)
     let notHp = "♡"
+    
     for i in 0..<10{
         if i>=life{
             hpString=hpString+notHp
@@ -26,6 +28,14 @@ func createPlayerLife(life:Int)->String{
         }
     }
     return "[\(hpString)] \(hpCount) / 100"
+}
+
+func visibleLength(_ s:String)->Int{
+    let pattern = "\u{001B}\\[[0-9;]*m"
+    let regex = try! NSRegularExpression(pattern: pattern)
+    let range = NSRange(s.startIndex..<s.endIndex, in: s)
+    let stripped = regex.stringByReplacingMatches(in: s, range: range, withTemplate: "")
+    return stripped.count
 }
 
 func showPlayerInfo(playerName:String,life:Int){
@@ -39,7 +49,11 @@ func showPlayerInfo(playerName:String,life:Int){
 }
 
 func fillSpace(limit:Int,targetText:String)->String{
-    let diffLimit = limit - targetText.count
+    let diffLimit = limit - visibleLength(targetText)
+    if diffLimit<0{
+        print("difffLimt\(diffLimit)")
+        return ""
+    }
     var space = ""
     for _ in 0..<diffLimit{
         space+=" "
@@ -102,4 +116,5 @@ enum TerminalColor:String{
     case blue = "\u{001B}[34m"
     case red = "\u{001B}[31m"
     case green = "\u{001B}[32m"
+    case pink = "\u{001B}[35m"
 }
