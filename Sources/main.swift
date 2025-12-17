@@ -3,8 +3,10 @@ import Foundation
 main()
 
 func main(){
-    userInputView()
-        
+    // Create Container
+    let myNyetContainer = GameContaner()
+    userInputView(viewModel: myNyetContainer.userInputViewModel)
+
 //    showPlayerInfo(playerName: playerName,life: life)
     
 }

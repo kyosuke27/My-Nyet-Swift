@@ -2,10 +2,11 @@ import Foundation
 
 // UserInput画面での入力を受け付ける
 class UserInputViewModel{
-    var player:Player
+    var state:UserInputState
     
-    init(){
-        player = Player(playerNamee: "")
+    init(state: UserInputState) {
+        self.state = state
     }
+    
 }
 
