@@ -3,12 +3,9 @@ import Foundation
 main()
 
 func main(){
-    let life = 8
-    print("ようこそマイNyetゲームへ")
-    print("あなたの名前を教えてください > ",terminator: "")
-    let playerName:String = readLine()!
-    
-    showPlayerInfo(playerName: playerName,life: life)
+    userInputView()
+        
+//    showPlayerInfo(playerName: playerName,life: life)
     
 }
 
@@ -92,19 +89,10 @@ enum MonsterType{
     case Slime
 }
 
-func showMonster(monster:MonsterType)->String{
+func getMonster(monster:MonsterType)->Monster{
     switch monster {
     case .Slime:
-        return """
-           _^_
-        _/     \\_
-      _/         \\_
-     /   o     o   \\
-    |      ___      |
-    |     \\___/     |
-     \\             /
-      \\___________/
-"""
+        return Slime()
     }
 }
 
