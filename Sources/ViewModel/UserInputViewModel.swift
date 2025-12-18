@@ -8,5 +8,9 @@ class UserInputViewModel{
         self.state = state
     }
     
+    func inputPlayerName(name:String){
+        self.state.player.playerName = name
+    }
+    
 }
 
