@@ -37,15 +37,6 @@ func visibleLength(_ s:String)->Int{
     return stripped.count
 }
 
-func showPlayerInfo(playerName:String,life:Int){
-    // RowLimit - (|*2)
-    let rowStringLimit = 30-2
-    print("==============================")
-    print("|\(fillSpace(limit: rowStringLimit, targetText: ("Player Name : "+playerName)))|")
-    print("| HP                         |")
-    print("|\(fillSpace(limit:rowStringLimit,targetText:createPlayerLife(life: life)))|")
-    print("==============================")
-}
 
 func fillSpace(limit:Int,targetText:String)->String{
     let diffLimit = limit - visibleLength(targetText)
