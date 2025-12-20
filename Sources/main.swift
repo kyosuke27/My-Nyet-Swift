@@ -4,11 +4,26 @@ main()
 
 func main(){
     // Create Container
-    let myNyetContainer = GameContaner()
-    userInputView(viewModel: myNyetContainer.userInputViewModel)
+//    let myNyetContainer = GameContaner()
+//    userInputView(viewModel: myNyetContainer.userInputViewModel)
+    print("キーを押してください (q で終了)")
+    UserInputArea.userINputArea()
+
+    
 
 //    showPlayerInfo(playerName: playerName,life: life)
     
+}
+
+// mode変更
+
+func stageArea()->String{
+    return """
+*******************
+*******************
+*******************
+*******************
+"""
 }
 
 func createPlayerLife(life:Int)->String{
