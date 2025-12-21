@@ -23,7 +23,7 @@ struct PlayerInfo{
         print("==============================")
         print("|\(fillSpace(limit: rowStringLimit, targetText: ("Player Name : "+self.player.playerName)))|")
         print("| HP                         |")
-        print("|\(fillSpace(limit:rowStringLimit,targetText:createPlayerLife(life: life)))|")
+        print("|\(fillSpace(limit:rowStringLimit,targetText:createPlayerLife(life: self.life)))|")
         print("==============================")
     }
 }

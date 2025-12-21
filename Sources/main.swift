@@ -52,19 +52,6 @@ func visibleLength(_ s:String)->Int{
 }
 
 
-func fillSpace(limit:Int,targetText:String)->String{
-    let diffLimit = limit - visibleLength(targetText)
-    if diffLimit<0{
-        print("difffLimt\(diffLimit)")
-        return ""
-    }
-    var space = ""
-    for _ in 0..<diffLimit{
-        space+=" "
-    }
-    return targetText + space
-}
-
 func playerInforow(content:String){
 }
 
