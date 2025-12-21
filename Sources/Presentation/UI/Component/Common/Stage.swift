@@ -14,13 +14,13 @@ struct Stage{
     }
     
     func createStage()->String{
-        return """
-*○******************
-********************
-********************
-********************
-********************
-"""
-        
+        var stageText:String = ""
+        for _ in 0..<self.vetical{
+            for _ in 0..<self.horizon{
+                stageText += "*"
+            }
+            stageText += "\n"
+        }
+        return stageText
     }
 }
