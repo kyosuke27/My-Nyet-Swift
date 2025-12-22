@@ -8,5 +8,5 @@
 import Foundation
 
 protocol ViewProtocol{
-    func render()->String
+    func render()
 }

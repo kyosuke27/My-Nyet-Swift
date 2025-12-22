@@ -21,4 +21,12 @@ func fillSpace(limit:Int,targetText:String)->String{
     return targetText + space
 }
 
+func trimLimeBreak(text:String)->String{
+    return text.trimmingCharacters(in: CharacterSet(charactersIn: "\n"))
+}
+
+func createScreen(){
+    print("\u{001B}[2J\u{001B}[H", terminator: "")
+}
+
 

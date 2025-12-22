@@ -8,11 +8,10 @@ func userInputView(viewModel:UserInputViewModel,terminaInputChar:InputSource){
     print("あなたの名前を教えてください > ",terminator: "")
     // 入力コンポーネントを呼ぶ
     viewModel.inputPlayerName(name: readLine()!)
-    print("termainInputChar")
-    print("\u{001B}[2J\u{001B}[H", terminator: "")
+    createScreen()
     PlayerInfo(player: Player(playerName: viewModel.state.player.playerName), life: 8).playerInfo()
     
-    Stage(player: 0).stage()
+    // Create Stage
     UserMoveInput(input: terminaInputChar).userInputArea()
     // ViewModelの値を用いてViewへ変化させる
 }

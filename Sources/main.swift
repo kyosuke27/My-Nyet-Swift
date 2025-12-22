@@ -14,17 +14,6 @@ func main(){
     
 }
 
-// mode変更
-
-func stageArea()->String{
-    return """
-*******************
-*******************
-*******************
-*******************
-"""
-}
-
 func createPlayerLife(life:Int)->String{
     var hpString:String = ""
     var hpCount:Int = 0

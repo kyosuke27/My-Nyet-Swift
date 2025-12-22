@@ -1,23 +1,22 @@
 import Foundation
 
 struct Stage{
-    let vetical = 5
+    let vetical = 20
     let horizon = 20
-    var player:Int
     
-    init(player: Int) {
-        self.player = player
+    func stage(playerPos:Int){
+        print(createStage(playerPos: playerPos))
     }
     
-    func stage(){
-        print(createStage())
-    }
-    
-    func createStage()->String{
+    func createStage(playerPos:Int)->String{
         var stageText:String = ""
         for _ in 0..<self.vetical{
             for _ in 0..<self.horizon{
-                stageText += "*"
+                if trimLimeBreak(text:stageText).count == playerPos{
+                    stageText += "🦸"
+                }else{
+                    stageText += "🌱"
+                }
             }
             stageText += "\n"
         }
