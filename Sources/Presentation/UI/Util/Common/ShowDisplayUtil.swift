@@ -22,6 +22,7 @@ func fillSpace(limit:Int,targetText:String)->String{
 }
 
 func trimLimeBreak(text:String)->String{
+    // debug
     return text.trimmingCharacters(in: CharacterSet(charactersIn: "\n"))
 }
 

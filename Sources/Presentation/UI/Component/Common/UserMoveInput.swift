@@ -17,13 +17,16 @@ struct UserMoveInput{
             
             if let c = input.readChar() {
                 if(c == "w"){
-                    playerPos += 20
+                    playerPos-=20
                 }
                 if(c == "d"){
                     playerPos+=1
                 }
                 if(c == "a"){
                     playerPos-=1
+                }
+                if(c == "s"){
+                    playerPos+=20
                 }
                 if c == "q" {
                     break
