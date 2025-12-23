@@ -3,7 +3,7 @@ import Foundation
 // User Input Text
 
 struct UserMoveStage{
-    let input:InputSource
+    let input:TerminalInputInterface
     
     func userInputArea(){
         var playerPos:Int = 0

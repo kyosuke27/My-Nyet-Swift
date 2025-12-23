@@ -13,5 +13,5 @@ func userInputView(viewModel:UserInputViewModel,terminaInputChar:TerminalInputIn
     // Create Stage
     UserMoveStage(input: terminaInputChar).userInputArea()
     // ViewModelの値を用いてViewへ変化させる
-    ansiiInput.clear()
+    // ansiiInput.clear()
 }
