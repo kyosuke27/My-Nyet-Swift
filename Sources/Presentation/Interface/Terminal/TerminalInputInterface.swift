@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol InputSource{
+protocol TerminalInputInterface{
     func readChar()->Character?
 }

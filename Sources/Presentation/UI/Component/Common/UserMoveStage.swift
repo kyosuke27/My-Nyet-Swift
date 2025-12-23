@@ -2,7 +2,7 @@ import Foundation
 
 // User Input Text
 
-struct UserMoveInput{
+struct UserMoveStage{
     let input:InputSource
     
     func userInputArea(){

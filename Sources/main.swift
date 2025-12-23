@@ -5,7 +5,7 @@ main()
 func main(){
     // Create Container
     let myNyetContainer = GameContaner()
-    userInputView(viewModel: myNyetContainer.userInputViewModel,terminaInputChar:myNyetContainer.terminalInput)
+    userInputView(viewModel: myNyetContainer.userInputViewModel,terminaInputChar:myNyetContainer.terminalInput,ansiiInput: myNyetContainer.ansiiOpe)
 //    print("キーを押してください (q で終了)")
 
     
