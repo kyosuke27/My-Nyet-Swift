@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol ViewProtocol{
+protocol ViewInterface{
     func render()
 }
