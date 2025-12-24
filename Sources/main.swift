@@ -5,13 +5,9 @@ main()
 func main(){
     // Create Container
     let myNyetContainer = GameContaner()
-    userInputView(viewModel: myNyetContainer.userInputViewModel,terminaInputChar:myNyetContainer.terminalInput,ansiiInput: myNyetContainer.ansiiOpe)
-//    print("キーを押してください (q で終了)")
-
-    
-
-//    showPlayerInfo(playerName: playerName,life: life)
-    
+    // Router
+    let router = Router(dIContainer: myNyetContainer)
+    router.navigate(routeType: RouteType.UserInput).render()
 }
 
 func createPlayerLife(life:Int)->String{

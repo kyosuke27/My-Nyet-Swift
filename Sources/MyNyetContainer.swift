@@ -2,8 +2,8 @@ import Foundation
 
 // Conteiner Object
 class GameContaner{
-    let terminalInput: TerminalInputInterface = TerminalInputChar()
-    let ansiiOpe: ANSIInterface = ANSIOperate()
+    let terminalInputChar: TerminalInputInterface = TerminalInputChar()
+    let ansiOperate: ANSIInterface = ANSIOperate()
     // UserInputViewModel
     let userInputViewModel = UserInputViewModel(state: UserInputState(player: Player(playerName: "")))
 }
