@@ -10,12 +10,10 @@
 import Foundation
 
 struct Router{
-    // DIContainer
-    let dIContainer:GameContaner
     
     func navigate(routeType:RouteType)->BaseView{
         return switch routeType{
-        case .UserInput: UserInputScreen(viewModel: dIContainer.userInputViewModel, terminalInputChar: dIContainer.terminalInputChar, ansiiInput: dIContainer.ansiOperate)
+        case .UserInput: UserInputScreen(viewModel: UserInputViewModel(state: UserInputState(player: Player(playerName: ""))), terminalInputChar: TerminalInputChar(), ansiiInput: ANSIOperate())
         }
     }
 }

@@ -3,10 +3,8 @@ import Foundation
 main()
 
 func main(){
-    // Create Container
-    let myNyetContainer = GameContaner()
     // Router
-    let router = Router(dIContainer: myNyetContainer)
+    let router = Router()
     router.navigate(routeType: RouteType.UserInput).render()
 }
 
