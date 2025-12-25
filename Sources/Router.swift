@@ -13,7 +13,7 @@ struct Router{
     
     func navigate(routeType:RouteType)->BaseView{
         return switch routeType{
-        case .UserInput: UserInputScreen(viewModel: UserInputViewModel(state: UserInputState(player: Player(playerName: ""))), terminalInputChar: TerminalInputChar(), ansiiInput: ANSIOperate())
+        case .UserInput: UserInputScreen(viewModel: UserInputViewModel(state: UserInputState(player: Player(playerName: ""))), terminalInput: TerminalInput(), ansiiInput: ANSIOperate())
         }
     }
 }

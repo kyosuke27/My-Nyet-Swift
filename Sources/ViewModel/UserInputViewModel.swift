@@ -12,5 +12,17 @@ class UserInputViewModel{
         self.state.player.playerName = name
     }
     
+    func onEvent(event:UserInputEvent){
+        switch event{
+            case .confirm: confirmUserInput()
+        }
+    }
+    func confirmUserInput(){
+        print("confirmUserInput")
+    }
+}
+
+enum UserInputEvent{
+    case confirm
 }
 

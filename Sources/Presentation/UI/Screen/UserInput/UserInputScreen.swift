@@ -3,12 +3,12 @@ import os
 
 struct UserInputScreen:BaseView{
     let viewModel:UserInputViewModel
-    let terminalInputChar:TerminalInputInterface
+    let terminalInput:TerminalInputInterface
     let ansiiInput:ANSIInterface
     
-    init(viewModel: UserInputViewModel, terminalInputChar: TerminalInputInterface, ansiiInput: ANSIInterface) {
+    init(viewModel: UserInputViewModel, terminalInput: TerminalInputInterface, ansiiInput: ANSIInterface) {
         self.viewModel = viewModel
-        self.terminalInputChar = terminalInputChar
+        self.terminalInput = terminalInput
         self.ansiiInput = ansiiInput
     }
     
@@ -17,7 +17,7 @@ struct UserInputScreen:BaseView{
         print("あなたの名前を教えてください > ",terminator: "")
         // 入力コンポーネントを呼ぶ
         viewModel.inputPlayerName(name: readLine()!)
-        UserInputConfirm(state: viewModel.state).render()
+        UserInputConfirm(state: viewModel.state, terminalInput:terminalInput,onOk: {viewModel.onEvent(event: .confirm)},onNo: {viewModel.onEvent(event: .confirm)}).render()
 
     }
     

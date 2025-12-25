@@ -9,4 +9,5 @@ import Foundation
 
 protocol TerminalInputInterface{
     func readChar()->Character?
+    func terminalInputLIne()->String
 }
