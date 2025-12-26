@@ -7,27 +7,24 @@
 
 import Foundation
 
-
-func fillSpace(limit:Int,targetText:String)->String{
+func fillSpace(limit: Int, targetText: String) -> String {
     let diffLimit = limit - visibleLength(targetText)
-    if diffLimit<0{
+    if diffLimit<0 {
         print("difffLimt\(diffLimit)")
         return ""
     }
     var space = ""
-    for _ in 0..<diffLimit{
+    for _ in 0..<diffLimit {
         space+=" "
     }
     return targetText + space
 }
 
-func trimLimeBreak(text:String)->String{
+func trimLimeBreak(text: String) -> String {
     // debug
     return text.trimmingCharacters(in: CharacterSet(charactersIn: "\n"))
 }
 
-func createScreen(){
+func createScreen() {
     print("\u{001B}[2J\u{001B}[H", terminator: "")
 }
-
-

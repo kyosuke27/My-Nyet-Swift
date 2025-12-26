@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol BaseView{
+protocol BaseView {
     func render()
 }

@@ -6,7 +6,7 @@
 //
 
 import Foundation
-enum TerminalColorType{
+enum TerminalColorType {
     case reset
     case blue
     case red
@@ -14,8 +14,8 @@ enum TerminalColorType{
     case pink
 }
 
-struct ANSITerminalColor{
-    func write(_ text: String, style: TerminalColorType)->String {
+struct ANSITerminalColor {
+    func write(_ text: String, style: TerminalColorType) -> String {
         return code(for: style) + text + "\u{1B}[0m"
     }
     

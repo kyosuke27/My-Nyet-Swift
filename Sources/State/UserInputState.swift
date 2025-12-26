@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct UserInputState{
-    var player:Player
+struct UserInputState {
+    var player: Player
 }

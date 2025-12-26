@@ -1,11 +1,11 @@
 import Foundation
 
-struct Slime:Monster{
-    func monster()->String {
+struct Slime: Monster {
+    func monster() -> String {
         return slime
     }
     
-    var slime:String = """
+    var slime: String = """
        _^_
     _/     \\_
   _/         \\_

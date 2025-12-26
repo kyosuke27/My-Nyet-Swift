@@ -1,10 +1,10 @@
 import Foundation
-struct TerminalInput:TerminalInputInterface{
+struct TerminalInput: TerminalInputInterface {
     func terminalInputLIne() -> String {
         return readLine()!
     }
     
-    func readChar() -> Character?{
+    func readChar() -> Character? {
         var oldTerm = termios()
         var newTerm = termios()
         

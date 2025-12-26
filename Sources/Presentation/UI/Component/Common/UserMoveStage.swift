@@ -2,30 +2,30 @@ import Foundation
 
 // User Input Text
 
-struct UserMoveStage{
-    let input:TerminalInputInterface
+struct UserMoveStage {
+    let input: TerminalInputInterface
     
-    func userInputArea(){
-        var playerPos:Int = 0
-        let stageArea:Stage = Stage()
+    func userInputArea() {
+        var playerPos: Int = 0
+        let stageArea: Stage = Stage()
         print("上: w")
         print("下: s")
         print("右: d")
         print("左: a")
-        while true{
+        while true {
             stageArea.stage(playerPos: playerPos)
             
             if let c = input.readChar() {
-                if(c == "w"){
+                if c == "w" {
                     playerPos-=20
                 }
-                if(c == "d"){
+                if c == "d" {
                     playerPos+=1
                 }
-                if(c == "a"){
+                if c == "a" {
                     playerPos-=1
                 }
-                if(c == "s"){
+                if c == "s" {
                     playerPos+=20
                 }
                 if c == "q" {

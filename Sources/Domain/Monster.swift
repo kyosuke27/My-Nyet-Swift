@@ -7,7 +7,6 @@
 
 import Foundation
 
-protocol Monster{
-    func monster()->String
+protocol Monster {
+    func monster() -> String
 }
-

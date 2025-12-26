@@ -1,0 +1,10 @@
+included:
+  - Sources
+
+excluded:
+  - .build
+  - Packages
+
+disabled_rules:
+  - trailing_whitespace
+
