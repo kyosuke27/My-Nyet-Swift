@@ -5,6 +5,18 @@ struct UserInputScreen: BaseView {
     let viewModel: UserInputViewModel
     let terminalInput: TerminalInputInterface
     let ansiiInput: ANSIInterface
+    let router: RouterInterface
+    
+    init(viewModel: UserInputViewModel, terminalInput: TerminalInputInterface, ansiiInput: ANSIInterface, router: RouterInterface) {
+        self.viewModel = viewModel
+        self.terminalInput = terminalInput
+        self.ansiiInput = ansiiInput
+        self.router = router
+        self.viewModel.onRoute = { route in
+            router.navigate(routeType: route)
+        }
+        
+    }
     
     func render() {
         print("ようこそマイNyetゲームへ")
@@ -12,8 +24,8 @@ struct UserInputScreen: BaseView {
         // 入力コンポーネントを呼ぶ
         viewModel.inputPlayerName(name: readLine()!)
         // 入力確認
-        UserInputConfirm(state: viewModel.state, terminalInput: terminalInput, onOk: {viewModel.onEvent(event: .confirm)}, onNo: {viewModel.onEvent(event: .confirm)}).render()
-        
+        UserInputConfirm(state: viewModel.state, terminalInput: terminalInput, onOk: {viewModel.onEvent(event: .confirmOk)}, onNo: {viewModel.onEvent(event: .confirmNo)}).render()
+        return
     }
     
 }

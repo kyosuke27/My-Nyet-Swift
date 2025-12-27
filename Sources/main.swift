@@ -5,7 +5,7 @@ main()
 func main() {
     // Router
     let router = Router()
-    router.navigate(routeType: RouteType.UserInput).render()
+    router.start()
 }
 
 func createPlayerLife(life: Int) -> String {
