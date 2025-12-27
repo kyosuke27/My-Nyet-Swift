@@ -1,16 +1,3 @@
-//
-//  File.swift
-//  My-Nyet-Swift
-//
-//  Created by kyosuke on 2025/12/19.
-//
-
-enum RouteType {
-    case userInput(UserInputState)
-    case game
-    case exit
-}
-
 // このファイル内でナビゲーションを実装する
 // RouteTypeを選択肢てRouteを行うと次へ遷移することが可能
 import Foundation
@@ -32,7 +19,7 @@ final class Router: RouterInterface {
                 view.render()
             case .game:
                 print("open game screen")
-                return 
+                return
             case .exit:
                 print("exit game")
                 return
