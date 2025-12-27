@@ -4,15 +4,15 @@ import Foundation
 class UserInputViewModel {
     var state: UserInputState
     var onRoute: ((NavigationType) -> Void)?
-    
+
     init(state: UserInputState) {
         self.state = state
     }
-    
+
     func inputPlayerName(name: String) {
         self.state.player.playerName = name
     }
-   
+
     func onEvent(event: UserInputEvent) {
         switch event {
         case .confirmOk: confirmOk()

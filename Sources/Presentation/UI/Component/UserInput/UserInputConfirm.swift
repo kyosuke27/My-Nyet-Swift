@@ -7,18 +7,18 @@ struct UserInputConfirm: ViewInterface {
     let onOk: () -> Void
     let onNo: () -> Void
     // Event
-    
+
     func render() {
         userInputConfirm(state: state)
     }
-    
+
     // 内部でprint実行
     func userInputConfirm(state: UserInputState) {
         let s = """
 あなたの名前は[ \(state.player.playerName) ]です
 よろしいですか？
 1) Yes 2) No
-> 
+>
 """
         print(s, terminator: "")
         // Input Terminal

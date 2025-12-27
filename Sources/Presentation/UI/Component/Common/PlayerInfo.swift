@@ -10,9 +10,9 @@ import Foundation
 struct PlayerInfo {
     var player: Player
     var life: Int
-    
+
     func playerInfo() {
-        
+
         // RowLimit - (|*2)
         let rowStringLimit = 30-2
         print("==============================")

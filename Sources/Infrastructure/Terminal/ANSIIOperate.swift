@@ -34,5 +34,5 @@ struct ANSIOperate: ANSIInterface {
     func resetScrollRegion() { out("\(esc)r") } // 全画面に戻す
     // 現在行を消す
     func clearLine() { out("\(esc)2K") }
-    
+
 }

@@ -4,7 +4,7 @@ struct Slime: Monster {
     func monster() -> String {
         return slime
     }
-    
+
     var slime: String = """
        _^_
     _/     \\_

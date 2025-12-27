@@ -10,7 +10,7 @@ struct Stage {
     func stage(playerPos: Int) {
         print(createStage(playerPos: playerPos))
     }
-    
+
     func createStage(playerPos: Int) -> String {
         let stageSpace = vetical * horizon
         var cells = Array(repeating: "🌱", count: stageSpace)

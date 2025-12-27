@@ -18,7 +18,7 @@ struct ANSITerminalColor {
     func write(_ text: String, style: TerminalColorType) -> String {
         return code(for: style) + text + "\u{1B}[0m"
     }
-    
+
     private func code(for style: TerminalColorType) -> String {
         switch style {
         case .reset: return  "\u{001B}[0m"

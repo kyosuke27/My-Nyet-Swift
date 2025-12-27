@@ -6,5 +6,4 @@ excluded:
   - Packages
 
 disabled_rules:
-  - trailing_whitespace
 

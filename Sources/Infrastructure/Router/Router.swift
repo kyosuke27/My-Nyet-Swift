@@ -4,12 +4,12 @@ import Foundation
 
 final class Router: RouterInterface {
     var screen: RouteType = .exit
-    
+
     func start() {
         screen = .userInput(UserInputState(player: Player(playerName: "")))
         loop()
     }
-    
+
     func loop() {
         while true {
             switch screen {
@@ -26,7 +26,7 @@ final class Router: RouterInterface {
             }
         }
     }
-    
+
     func navigate(routeType: NavigationType) {
         switch routeType {
         case .GameScreen:

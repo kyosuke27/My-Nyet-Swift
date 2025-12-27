@@ -4,7 +4,7 @@ import Foundation
 
 struct UserMoveStage {
     let input: TerminalInputInterface
-    
+
     func userInputArea() {
         var playerPos: Int = 0
         let stageArea: Stage = Stage()
@@ -14,7 +14,7 @@ struct UserMoveStage {
         print("左: a")
         while true {
             stageArea.stage(playerPos: playerPos)
-            
+
             if let c = input.readChar() {
                 if c == "w" {
                     playerPos-=20
@@ -36,5 +36,5 @@ struct UserMoveStage {
             }
         }
     }
-    
+
 }

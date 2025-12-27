@@ -11,10 +11,10 @@ func main() {
 func createPlayerLife(life: Int) -> String {
     var hpString: String = ""
     var hpCount: Int = 0
-    
+
     let hp: String = colorString(text: "♥", color: TerminalColor.pink)
     let notHp = "♡"
-    
+
     for i in 0..<10 {
         if i>=life {
             hpString=hpString+notHp
@@ -74,7 +74,7 @@ func getMonster(monster: MonsterType) -> Monster {
 
 enum TerminalColor: String {
     case reset = "\u{001B}[0m"
-    
+
     case blue = "\u{001B}[34m"
     case red = "\u{001B}[31m"
     case green = "\u{001B}[32m"

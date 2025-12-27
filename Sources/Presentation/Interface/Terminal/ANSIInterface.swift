@@ -21,5 +21,5 @@ protocol ANSIInterface {
     func setScrollRegion(_ rowStart: Int, _ rowEnd: Int)
     func resetScrollRegion()
     func clearLine()
-    
+
 }
