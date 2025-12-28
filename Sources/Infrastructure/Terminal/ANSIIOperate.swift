@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ANSIOperate: ANSIInterface {
+struct ANSIIOperate: ANSIIOperateInterface {
     // fast print
     @inline(__always) func out(_ s: String) {
         FileHandle.standardOutput.write(s.data(using: .utf8)!)

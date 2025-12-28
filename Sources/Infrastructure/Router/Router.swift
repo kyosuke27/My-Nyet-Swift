@@ -4,6 +4,8 @@ import Foundation
 
 final class Router: RouterInterface {
     var screen: RouteType = .exit
+    let terminalInput: TerminalInputInterface = TerminalInput()
+    let ansiiOperate: ANSIIOperateInterface = ANSIIOperate()
 
     func start() {
         screen = .userInput(UserInputState(player: Player(playerName: "")))
@@ -11,14 +13,21 @@ final class Router: RouterInterface {
     }
 
     func loop() {
+        var view: BaseView
         while true {
             switch screen {
             case .userInput(let userInputState):
                 let vm = UserInputViewModel(state: userInputState)
-                let view = UserInputScreen(viewModel: vm, terminalInput: TerminalInput(), ansiiInput: ANSIOperate(), router: self)
+                // ANSIOperate -> Infara層なので問題ない
+                view = UserInputScreen(viewModel: vm, terminalInput: terminalInput, ansiiInput: ansiiOperate, router: self)
                 view.render()
             case .game:
-                print("open game screen")
+                let vm = GameViewModel(gameState: GameState(playerPosition: 0))
+                // ANSIOperate -> Infara層なので問題ない
+                view = GameScreen(viewModel: vm, router: self, ansiiOperate: ansiiOperate,
+                                  terminalInput:
+                                    terminalInput )
+                view.render()
                 return
             case .exit:
                 print("exit game")

@@ -1,8 +1,12 @@
-//
-//  File.swift
-//  My-Nyet-Swift
-//
-//  Created by kyosuke on 2025/12/27.
-//
-
 import Foundation
+
+class GameViewModel {
+    let gameState: GameState
+    // optional
+    var onRoute: ((NavigationType) -> Void)?
+
+    init(gameState: GameState) {
+        self.gameState = gameState
+    }
+
+}

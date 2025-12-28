@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol ANSIInterface {
+protocol ANSIIOperateInterface {
     // fast print
     @inline(__always) func out(_ s: String)
     // common esc

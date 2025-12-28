@@ -3,7 +3,7 @@ import Foundation
 // User Input Text
 
 struct UserMoveStage {
-    let input: TerminalInputInterface
+    let terminalInput: TerminalInputInterface
 
     func userInputArea() {
         var playerPos: Int = 0
@@ -15,7 +15,7 @@ struct UserMoveStage {
         while true {
             stageArea.stage(playerPos: playerPos)
 
-            if let c = input.readChar() {
+            if let c = terminalInput.readChar() {
                 if c == "w" {
                     playerPos-=20
                 }

@@ -4,10 +4,10 @@ import os
 struct UserInputScreen: BaseView {
     let viewModel: UserInputViewModel
     let terminalInput: TerminalInputInterface
-    let ansiiInput: ANSIInterface
+    let ansiiInput: ANSIIOperateInterface
     let router: RouterInterface
 
-    init(viewModel: UserInputViewModel, terminalInput: TerminalInputInterface, ansiiInput: ANSIInterface, router: RouterInterface) {
+    init(viewModel: UserInputViewModel, terminalInput: TerminalInputInterface, ansiiInput: ANSIIOperateInterface, router: RouterInterface) {
         self.viewModel = viewModel
         self.terminalInput = terminalInput
         self.ansiiInput = ansiiInput
