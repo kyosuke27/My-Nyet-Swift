@@ -6,7 +6,9 @@ struct Stage {
     let player = "🦸"
     let grass = "🌱"
     let town = "🌇"
+    let enemy = "👾"
     let townPos = 24
+    let monsterPos:[Int] = [5,10]
 
     func stage(playerPos: Int) {
         print(createStage(playerPos: playerPos))
@@ -20,6 +22,9 @@ struct Stage {
         var stageArray: [String] = []
         // add town position
         cells[townPos] = town
+        for i in monsterPos{
+            cells[i] = enemy
+        }
         // 5行分確保
         stageArray.reserveCapacity(vetical)
         for y in 0..<vetical {
