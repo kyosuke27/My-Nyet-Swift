@@ -14,4 +14,9 @@ extension GameState {
         }
         return s
     }
+
+    // 増分した値を返すだけのもの
+    func addPos(addPos: Int) -> Int {
+        return self.playerPosition + addPos
+    }
 }

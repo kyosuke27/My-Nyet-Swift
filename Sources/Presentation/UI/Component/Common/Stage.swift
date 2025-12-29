@@ -6,6 +6,7 @@ struct Stage {
     let player = "🦸"
     let grass = "🌱"
     let town = "🌇"
+    let townPos = 24
 
     func stage(playerPos: Int) {
         print(createStage(playerPos: playerPos))
@@ -13,10 +14,12 @@ struct Stage {
 
     func createStage(playerPos: Int) -> String {
         let stageSpace = vetical * horizon
-        var cells = Array(repeating: "🌱", count: stageSpace)
-        cells[playerPos] = "🦸"
+        var cells = Array(repeating: grass, count: stageSpace)
+        cells[playerPos] = player
         // 返却する値
         var stageArray: [String] = []
+        // add town position
+        cells[townPos] = town
         // 5行分確保
         stageArray.reserveCapacity(vetical)
         for y in 0..<vetical {
@@ -27,4 +30,5 @@ struct Stage {
         }
         return stageArray.joined(separator: "\n") + "\n" // 最後に改行追加
     }
+
 }

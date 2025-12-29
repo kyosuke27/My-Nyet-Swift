@@ -11,12 +11,17 @@ class GameViewModel {
 
     func onEvent(gameEvent: GameEvent) {
         switch gameEvent {
-            case let .changePlayerPos(position):
+        case let .changePlayerPos(position):
             changePlayerPosition(position: position)
+        case .exitGame:
+            //                exit(0)
+            onRoute?(NavigationType.exit)
+
         }
     }
 
     // Upate Player Position
+    // GameStateのpositionはviewModel内部で直接操作しない
     func changePlayerPosition(position: Int) {
         gameState = gameState.copy(playerPosition: position)
     }
@@ -25,4 +30,5 @@ class GameViewModel {
 
 enum GameEvent {
     case changePlayerPos(position: Int)
+    case exitGame
 }

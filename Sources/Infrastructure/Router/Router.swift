@@ -26,12 +26,12 @@ final class Router: RouterInterface {
                 // ANSIOperate -> Infara層なので問題ない
                 view = GameScreen(viewModel: vm, router: self, ansiiOperate: ansiiOperate,
                                   terminalInput:
-                                    terminalInput )
+                                    terminalInput)
                 view.render()
                 return
             case .exit:
-                print("exit game")
-                return
+                print("router exit game")
+                exit(0)
             }
         }
     }

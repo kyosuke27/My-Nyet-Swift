@@ -1,44 +1,46 @@
 import Foundation
 
-// User Input Text
-
 struct UserMoveStage {
+    // EvnetとStateでコンポーネントは管理する
+    let onEvent: (GameEvent) -> Void
+    let state: GameState
+
+    // infra
     let terminalInput: TerminalInputInterface
-    let gameViewModel: GameViewModel
     let ansiiOperate: ANSIIOperateInterface
 
+    let gameEndPosition: Int = -9999
+
     func userInputArea() {
-        var playerPos = 0
+        var currentUserPos = state.playerPosition
         let stageArea: Stage = Stage()
         print("上: w")
         print("下: s")
         print("右: d")
         print("左: a")
-        while true {
-            PlayerInfo(player: Player(playerName: "kyosuke"), life: 8).playerInfo()
-            stageArea.stage(playerPos: playerPos)
+        PlayerInfo(player: Player(playerName: "kyosuke"), life: 8).playerInfo()
+        stageArea.stage(playerPos: state.playerPosition)
 
-            if let c = terminalInput.readChar() {
-                if c == "w" {
-                    playerPos-=20
-                }
-                if c == "d" {
-                    playerPos+=1
-                }
-                if c == "a" {
-                    playerPos-=1
-                }
-                if c == "s" {
-                    playerPos+=20
-                }
-                if c == "q" {
-                    break
-                }
-                // stateのplayerPosを更新
-                gameViewModel.onEvent(gameEvent: .changePlayerPos(position: playerPos))
-                stageArea.stage(playerPos: gameViewModel.gameState.playerPosition)
-                ansiiOperate.allClear()
+        if let c = terminalInput.readChar() {
+            if c == "w" {
+                currentUserPos -= 20
             }
+            if c == "d" {
+                currentUserPos += 1
+            }
+            if c == "a" {
+                currentUserPos -= 1
+            }
+            if c == "s" {
+                currentUserPos += 20
+            }
+            if c == "q" {
+                onEvent(GameEvent.changePlayerPos(position: gameEndPosition))
+                return
+            }
+            // stateのplayerPosを更新
+            onEvent(GameEvent.changePlayerPos(position: currentUserPos))
+            ansiiOperate.allClear()
         }
     }
 
