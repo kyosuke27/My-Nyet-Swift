@@ -15,7 +15,6 @@ struct UserInputScreen: BaseView {
         self.viewModel.onRoute = { route in
             router.navigate(routeType: route)
         }
-
     }
 
     func render() {

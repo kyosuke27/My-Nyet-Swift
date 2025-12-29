@@ -4,6 +4,7 @@ import Foundation
 
 struct UserMoveStage {
     let terminalInput: TerminalInputInterface
+    let gameViewModel: GameViewModel
 
     func userInputArea() {
         var playerPos: Int = 0
@@ -14,6 +15,7 @@ struct UserMoveStage {
         print("左: a")
         while true {
             stageArea.stage(playerPos: playerPos)
+            var playerPos = 0
 
             if let c = terminalInput.readChar() {
                 if c == "w" {
@@ -31,8 +33,10 @@ struct UserMoveStage {
                 if c == "q" {
                     break
                 }
-                stageArea.stage(playerPos: playerPos)
-                createScreen()
+                // stateのplayerPosを更新
+                gameViewModel.onEvent(gameEvent: .changePlayerPos(position: playerPos))
+                stageArea.stage(playerPos: gameViewModel.gameState.playerPosition)
+                clearScreen()
             }
         }
     }

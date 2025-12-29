@@ -25,6 +25,6 @@ func trimLimeBreak(text: String) -> String {
     return text.trimmingCharacters(in: CharacterSet(charactersIn: "\n"))
 }
 
-func createScreen() {
+func clearScreen() {
     print("\u{001B}[2J\u{001B}[H", terminator: "")
 }
