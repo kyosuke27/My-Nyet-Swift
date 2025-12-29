@@ -5,6 +5,7 @@ import Foundation
 struct UserMoveStage {
     let terminalInput: TerminalInputInterface
     let gameViewModel: GameViewModel
+    let ansiiOperate: ANSIIOperateInterface
 
     func userInputArea() {
         var playerPos = 0
@@ -14,6 +15,7 @@ struct UserMoveStage {
         print("右: d")
         print("左: a")
         while true {
+            PlayerInfo(player: Player(playerName: "kyosuke"), life: 8).playerInfo()
             stageArea.stage(playerPos: playerPos)
 
             if let c = terminalInput.readChar() {
@@ -35,7 +37,7 @@ struct UserMoveStage {
                 // stateのplayerPosを更新
                 gameViewModel.onEvent(gameEvent: .changePlayerPos(position: playerPos))
                 stageArea.stage(playerPos: gameViewModel.gameState.playerPosition)
-                clearScreen()
+                ansiiOperate.allClear()
             }
         }
     }

@@ -18,6 +18,6 @@ struct GameScreen: BaseView {
 
     func render() {
         print("Game View")
-        UserMoveStage(terminalInput: terminalInput,gameViewModel: viewModel ).userInputArea()
+        UserMoveStage(terminalInput: terminalInput, gameViewModel: viewModel, ansiiOperate: ansiiOperate).userInputArea()
     }
 }

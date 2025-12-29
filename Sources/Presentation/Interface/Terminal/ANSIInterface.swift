@@ -13,6 +13,7 @@ protocol ANSIIOperateInterface {
     // common esc
     // terminal clear
     func clear()
+    func allClear()
     func home()
     func move(row: Int, col: Int)
     func hideCursor()

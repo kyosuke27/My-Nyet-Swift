@@ -15,7 +15,14 @@ struct ANSIIOperate: ANSIIOperateInterface {
     // common esc
     let esc = "\u{1B}["
     // ターミナルを消去
+    // カーソルは元に戻らない
     func clear() { out("\(esc)2J") }
+
+    // 全部削除する
+    // 
+    func allClear() {
+        out("\(esc)2J\(esc)H")
+    }
     // カーソルを右上に
     func home() { out("\(esc)H") }
     // 特定位置に移動
