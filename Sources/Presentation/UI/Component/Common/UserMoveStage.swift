@@ -7,7 +7,7 @@ struct UserMoveStage {
     let gameViewModel: GameViewModel
 
     func userInputArea() {
-        var playerPos: Int = 0
+        var playerPos = 0
         let stageArea: Stage = Stage()
         print("上: w")
         print("下: s")
@@ -15,7 +15,6 @@ struct UserMoveStage {
         print("左: a")
         while true {
             stageArea.stage(playerPos: playerPos)
-            var playerPos = 0
 
             if let c = terminalInput.readChar() {
                 if c == "w" {
