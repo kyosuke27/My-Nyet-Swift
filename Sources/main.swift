@@ -66,7 +66,7 @@ enum MonsterType {
 func getMonster(monster: MonsterType) -> Monster {
     switch monster {
     case .Slime:
-        return Slime()
+        return Slime(monsterName: "Slime")
     }
 }
 

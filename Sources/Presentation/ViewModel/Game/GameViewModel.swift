@@ -1,12 +1,15 @@
 import Foundation
 
 class GameViewModel {
+    let playerUpdatePositionUseCase: PlayerUpdatePositionUseCase
     var gameState: GameState
     // optional
     var onRoute: ((NavigationType) -> Void)?
 
-    init(gameState: GameState) {
+    init(gameState: GameState, playerUpdatePositionUseCase: PlayerUpdatePositionUseCase) {
         self.gameState = gameState
+        self.playerUpdatePositionUseCase = playerUpdatePositionUseCase
+
     }
 
     func onEvent(gameEvent: GameEvent) {
@@ -23,7 +26,7 @@ class GameViewModel {
     // Upate Player Position
     // GameStateのpositionはviewModel内部で直接操作しない
     func changePlayerPosition(position: Int) {
-        gameState = gameState.copy(playerPosition: position)
+        gameState = playerUpdatePositionUseCase.execute(gameState: gameState, playerAddMount: position)
     }
 
 }
