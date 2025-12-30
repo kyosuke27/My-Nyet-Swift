@@ -3,7 +3,7 @@
 import Foundation
 
 final class Router: RouterInterface {
-    var screen: RouteType = .exit
+    var screen: RouteType = RouteType.exit
     let terminalInput: TerminalInputInterface = TerminalInput()
     let ansiiOperate: ANSIIOperateInterface = ANSIIOperate()
 
@@ -29,6 +29,9 @@ final class Router: RouterInterface {
                                     terminalInput)
                 view.render()
                 return
+            case .battle:
+                view = BattleScreen()
+                view.render()
             case .exit:
                 exit(0)
             }
@@ -38,9 +41,11 @@ final class Router: RouterInterface {
     func navigate(navigationType: NavigationType) {
         switch navigationType {
         case .GameScreen:
-            screen = .game
+            screen = RouteType.game
         case .UserInputScreen:
-            screen = .userInput(UserInputState(player: Player(playerName: "")))
+            screen = RouteType.userInput(UserInputState(player: Player(playerName: "")))
+        case .BattleScreen:
+            screen = RouteType.battle
         case .exit:
             screen = .exit
         }

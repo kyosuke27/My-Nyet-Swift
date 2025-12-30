@@ -13,6 +13,8 @@ enum NavigationType {
     case GameScreen
     // return userInputScreen
     case UserInputScreen
+    // Battle
+    case BattleScreen
     // game exit
     case exit
 }
