@@ -8,5 +8,5 @@
 import Foundation
 
 protocol RouterInterface {
-    func navigate(routeType: NavigationType)
+    func navigate(navigationType: NavigationType)
 }

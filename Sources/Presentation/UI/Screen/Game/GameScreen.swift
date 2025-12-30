@@ -12,7 +12,7 @@ struct GameScreen: BaseView {
         self.ansiiOperate = ansiiOperate
         self.terminalInput = terminalInput
         self.viewModel.onRoute = { route in
-            router.navigate(routeType: route)
+            router.navigate(navigationType: route)
         }
     }
 

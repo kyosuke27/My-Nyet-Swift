@@ -30,14 +30,13 @@ final class Router: RouterInterface {
                 view.render()
                 return
             case .exit:
-                print("router exit game")
                 exit(0)
             }
         }
     }
 
-    func navigate(routeType: NavigationType) {
-        switch routeType {
+    func navigate(navigationType: NavigationType) {
+        switch navigationType {
         case .GameScreen:
             screen = .game
         case .UserInputScreen:

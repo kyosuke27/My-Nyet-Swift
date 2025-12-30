@@ -7,13 +7,11 @@
 
 import Foundation
 
-struct BattleScreen:BaseView{
-    var monster:Monster = Slime(monsterName: "slime")
+struct BattleScreen: BaseView {
+    var monster: Monster = Slime(monsterName: "slime")
     func render() {
         print("Battle Screen")
         print("\(monster.monsterName)")
     }
-    
-    
-}
 
+}

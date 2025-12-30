@@ -13,7 +13,7 @@ struct UserInputScreen: BaseView {
         self.ansiiInput = ansiiInput
         self.router = router
         self.viewModel.onRoute = { route in
-            router.navigate(routeType: route)
+            router.navigate(navigationType: route)
         }
     }
 

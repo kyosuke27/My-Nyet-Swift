@@ -8,6 +8,6 @@
 import Foundation
 
 protocol Monster {
-    var monsterName:String { get }
+    var monsterName: String { get }
     func monster() -> String
 }
