@@ -1,6 +1,8 @@
 import Foundation
 
 struct Slime: Monster {
+    var monsterName: String
+    
     func monster() -> String {
         return slime
     }
