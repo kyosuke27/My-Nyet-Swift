@@ -12,7 +12,7 @@ struct UserMoveStage {
     let gameEndPosition: Int = -9999
 
     func userInputArea() {
-        var currentUserPos = state.playerPosition
+        var addPlayerPos = 0
         let stageArea: Stage = Stage()
         print("上: w")
         print("下: s")
@@ -23,23 +23,23 @@ struct UserMoveStage {
 
         if let c = terminalInput.readChar() {
             if c == "w" {
-                currentUserPos -= 20
+                addPlayerPos = -20
             }
             if c == "d" {
-                currentUserPos += 1
+                addPlayerPos = 1
             }
             if c == "a" {
-                currentUserPos -= 1
+                addPlayerPos = -1
             }
             if c == "s" {
-                currentUserPos += 20
+                addPlayerPos = 20
             }
             if c == "q" {
                 onEvent(GameEvent.changePlayerPos(position: gameEndPosition))
                 return
             }
             // stateのplayerPosを更新
-            onEvent(GameEvent.changePlayerPos(position: currentUserPos))
+            onEvent(GameEvent.changePlayerPos(position: addPlayerPos))
             ansiiOperate.allClear()
         }
     }

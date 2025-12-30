@@ -7,6 +7,7 @@ final class Router: RouterInterface {
     let terminalInput: TerminalInputInterface = TerminalInput()
     let ansiiOperate: ANSIIOperateInterface = ANSIIOperate()
     let gameState: GameState = GameState(playerPosition: 0)
+    let playerUpdatePosition: PlayerUpdatePositionUseCase = PlayerUpdatePositionInteractor()
 
     func start() {
         screen = .userInput(UserInputState(player: Player(playerName: "")))
@@ -23,7 +24,7 @@ final class Router: RouterInterface {
                 view = UserInputScreen(viewModel: vm, terminalInput: terminalInput, ansiiInput: ansiiOperate, router: self)
                 view.render()
             case .game:
-                let vm = GameViewModel(gameState: gameState, playerUpdatePositionUseCase: PlayerUpdatePositionInteractor())
+                let vm = GameViewModel(gameState: gameState, playerUpdatePositionUseCase: playerUpdatePosition)
                 // ANSIOperate -> Infara層なので問題ない
                 view = GameScreen(viewModel: vm, router: self, ansiiOperate: ansiiOperate,
                                   terminalInput:

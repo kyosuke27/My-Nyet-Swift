@@ -9,6 +9,8 @@ import Foundation
 struct PlayerUpdatePositionInteractor: PlayerUpdatePositionUseCase {
     func execute(gameState: GameState, playerAddMount: Int) -> GameState {
         let pPos = gameState.playerPosition
+        print("pPos : \(pPos)")
+        print("playerAddMount : \(playerAddMount)")
         return GameState(playerPosition: pPos+playerAddMount)
     }
 
