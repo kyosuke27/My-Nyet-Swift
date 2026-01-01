@@ -1,5 +1,13 @@
 import Foundation
 
+enum PlayerMove {
+    case Up
+    case Down
+    case Right
+    case Left
+    case End
+}
+
 struct UserMoveStage {
     // EvnetとStateでコンポーネントは管理する
     let onEvent: (GameEvent) -> Void
@@ -8,11 +16,7 @@ struct UserMoveStage {
     // infra
     let terminalInput: TerminalInputInterface
     let ansiiOperate: ANSIIOperateInterface
-
-    let gameEndPosition: Int = -9999
-
     func userInputArea() {
-        var addPlayerPos = 0
         let stageArea: Stage = Stage()
         print("上: w")
         print("下: s")
@@ -22,24 +26,22 @@ struct UserMoveStage {
         stageArea.stage(playerPos: state.playerPosition)
 
         if let c = terminalInput.readChar() {
+            print("c : \(c)")
             if c == "w" {
-                addPlayerPos = -20
+                onEvent(GameEvent.changePlayerPos(MoveDirection.Up))
             }
             if c == "d" {
-                addPlayerPos = 1
+                onEvent(GameEvent.changePlayerPos(MoveDirection.Right))
             }
             if c == "a" {
-                addPlayerPos = -1
+                onEvent(GameEvent.changePlayerPos(MoveDirection.Left))
             }
             if c == "s" {
-                addPlayerPos = 20
+                onEvent(GameEvent.changePlayerPos(MoveDirection.Down))
             }
             if c == "q" {
-                onEvent(GameEvent.changePlayerPos(position: gameEndPosition))
-                return
+                onEvent(GameEvent.exitGame)
             }
-            // stateのplayerPosを更新
-            onEvent(GameEvent.changePlayerPos(position: addPlayerPos))
             ansiiOperate.allClear()
         }
     }

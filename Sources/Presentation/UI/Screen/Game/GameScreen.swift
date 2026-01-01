@@ -17,9 +17,6 @@ struct GameScreen: BaseView {
     }
 
     func render() {
-        while viewModel.gameState.playerPosition >= 0 {
-            UserMoveStage(onEvent: viewModel.onEvent, state: viewModel.gameState, terminalInput: terminalInput, ansiiOperate: ansiiOperate).userInputArea()
-        }
-        viewModel.onEvent(gameEvent: .exitGame)
+        UserMoveStage(onEvent: viewModel.onEvent, state: viewModel.gameState, terminalInput: terminalInput, ansiiOperate: ansiiOperate).userInputArea()
     }
 }

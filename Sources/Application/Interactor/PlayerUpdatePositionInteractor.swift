@@ -7,11 +7,21 @@
 
 import Foundation
 struct PlayerUpdatePositionInteractor: PlayerUpdatePositionUseCase {
-    func execute(gameState: GameState, playerAddMount: Int) -> GameState {
+    func execute(gameState: GameState, moveDirection: MoveDirection) -> GameState {
         let pPos = gameState.playerPosition
         print("pPos : \(pPos)")
-        print("playerAddMount : \(playerAddMount)")
-        return GameState(playerPosition: pPos+playerAddMount)
+        let move: Int
+        switch moveDirection {
+        case .Up:
+            move = -20
+        case .Down:
+            move = 20
+        case .Right:
+            move = 1
+        case .Left:
+            move = -1
+        }
+        return GameState(playerPosition: pPos+move)
     }
 
 }
