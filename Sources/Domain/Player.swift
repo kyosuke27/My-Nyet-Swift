@@ -1,9 +1,12 @@
 import Foundation
 
 struct Player {
+    // player life
+//    var playerLife:Int
+
     // playerName
     var playerName: String
 
-    // PlayerNameCount
-    // 算出プロパティで定義する
+//     player position
+//    var playerPosition:Int
 }

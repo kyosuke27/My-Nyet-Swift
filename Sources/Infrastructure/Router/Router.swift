@@ -6,21 +6,29 @@ final class Router: RouterInterface {
     var screen: RouteType = RouteType.exit
     let terminalInput: TerminalInputInterface = TerminalInput()
     let ansiiOperate: ANSIIOperateInterface = ANSIIOperate()
+    // State
     let gameState: GameState = GameState(playerPosition: 0)
+    let userInputState: UserInputState = UserInputState(player: Player(playerName: ""))
+
+    // UseCase
     let playerUpdatePosition: PlayerUpdatePositionUseCase = PlayerUpdatePositionInteractor()
-    lazy var gameViewModel:GameViewModel = GameViewModel(gameState: gameState, playerUpdatePositionUseCase: playerUpdatePosition)
-    
+
+    // ViewModel
+    lazy var userInputViewModel: UserInputViewModel = UserInputViewModel(state: userInputState)
+    lazy var gameViewModel: GameViewModel = GameViewModel(gameState: gameState, playerUpdatePositionUseCase: playerUpdatePosition)
+
     func start() {
-        screen = .userInput(UserInputState(player: Player(playerName: "")))
+        // initial
+        screen = .userInput
         loop()
     }
-    
+
     func loop() {
         var view: BaseView
         while true {
             switch screen {
-            case .userInput(let userInputState):
-                let vm = UserInputViewModel(state: userInputState)
+            case .userInput:
+                let vm = userInputViewModel
                 // ANSIOperate -> Infara層なので問題ない
                 view = UserInputScreen(viewModel: vm, terminalInput: terminalInput, ansiiInput: ansiiOperate, router: self)
                 view.render()
@@ -39,13 +47,13 @@ final class Router: RouterInterface {
             }
         }
     }
-    
+
     func navigate(navigationType: NavigationType) {
         switch navigationType {
         case .GameScreen:
             screen = RouteType.game
         case .UserInputScreen:
-            screen = RouteType.userInput(UserInputState(player: Player(playerName: "")))
+            screen = RouteType.userInput
         case .BattleScreen:
             screen = RouteType.battle
         case .exit:

@@ -8,7 +8,7 @@
 import Foundation
 
 enum RouteType {
-    case userInput(UserInputState)
+    case userInput
     case game
     case battle
     case exit

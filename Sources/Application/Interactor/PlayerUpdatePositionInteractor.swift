@@ -21,7 +21,9 @@ struct PlayerUpdatePositionInteractor: PlayerUpdatePositionUseCase {
         case .Left:
             move = -1
         }
-        return GameState(playerPosition: pPos+move)
+        let movedPosition = pPos+move
+        // TODO:モデルの更新処理を追加
+        return GameState(playerPosition: movedPosition)
     }
 
 }

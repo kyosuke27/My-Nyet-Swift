@@ -26,7 +26,6 @@ struct UserMoveStage {
         stageArea.stage(playerPos: state.playerPosition)
 
         if let c = terminalInput.readChar() {
-            print("c : \(c)")
             if c == "w" {
                 onEvent(GameEvent.changePlayerPos(MoveDirection.Up))
             }
